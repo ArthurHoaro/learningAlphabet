@@ -11,11 +11,17 @@
 	<link rel="stylesheet" href="libs/jquery-ui-1.9.1/css/smoothness/jquery-ui-1.9.1.custom.min.css" />
 	<!-- Drag and drop pour les mobiles -->
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
+	<script src="scripts/random.js"></script>
 	<meta charset="utf-8" /> 
 
 	<script type="text/javascript">
 		$(document).ready(function() {		
-				
+			var solution = getRandomLetter();
+			var listeLettres = getRandomList(4, solution);
+
+			for( var i = 0 ; i < listeLettres.length ; ++i ) {
+				$('#sortable').append('<li><a id="maj">'+ listeLettres[i] +'</a></li>');
+			}
 		});
 
 		$(document).bind('pageinit', function() {

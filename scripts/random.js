@@ -7,18 +7,31 @@
  * @return : tableau de "nb" lettres différentes contenant "solution"
  **/
 function getRandomList(nb, solution, lower) {
-	lower = (lower == true) ? true : false;
-	var alpha = (lower) ? 'abcdefghiklmnopqrstuvwxyz' : 'ABCDEFGHIJKLMNOPQRSTUVWXTZ';
 	var out = Array();
 	out[0] = solution;
 
 	for (var i=1; i<nb-1; i++) {
-		var rnum = Math.floor(Math.random() * alpha.length);
-		var letter = alpha.substring(rnum,rnum+1);
+		var letter = getRandomLetter(lower);		
 		if( jQuery.inArray(letter, out) == -1 )
 			out[i] = letter;
 		else
 			i--;
 	}
-	return out;
+	return $.randomize(out);;
 }
+
+function getRandomLetter(lower) {
+	lower = (lower == true) ? true : false;
+	var alpha = (lower) ? 'abcdefghiklmnopqrstuvwxyz' : 'ABCDEFGHIJKLMNOPQRSTUVWXTZ';
+	var rnum = Math.floor(Math.random() * alpha.length);
+	return alpha.substring(rnum,rnum+1);
+}
+
+(function($) {
+  	$.randomize = function(arr) {  
+    	for(var j, x, i = arr.length; i; j = parseInt(Math.random() * i), x = arr[--i], arr[i] = arr[j], arr[j] = x);
+    return arr;
+};
+
+
+})(jQuery);
