@@ -5,8 +5,18 @@
   <script type="text/javascript" charset="utf-8" src="libs/jquery-1.8.2.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="libs/jquery.mobile-1.2.0.min.js"></script>
   <script type="text/javascript" charset="utf-8" src="scripts/sons.js"></script>
+  <link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
  </head>
  <body>
-    <h1>Hello PhoneGap</h1>
+    <h1>Hello world</h1>
+
+    <!-- Simple audio playback -->
+	<audio id="lettre_alpha">
+		<source src="sons/en_alphabet.mp3"></source>
+		<source src="sons/en_alphabet.ogg"></source>
+  		Your browser does not support the <code>audio</code> element.
+	</audio>
+
+	<a data-role="button" onclick="play('en_alphabet')">Play Alpha</a>
  </body>
 </html>
