@@ -15,7 +15,7 @@ function getRandomList(nb, solution, lower) {
 	for (var i=1; i<nb-1; i++) {
 		var rnum = Math.floor(Math.random() * alpha.length);
 		var letter = alpha.substring(rnum,rnum+1);
-		if( ! jQuery.inArray(letter, out) )
+		if( jQuery.inArray(letter, out) == -1 )
 			out[i] = letter;
 		else
 			i--;
