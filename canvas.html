@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title> Premiere page </title>
+
+<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' >
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+<meta charset="utf-8" /> 
+</head>
+<body onload="random_letter();">
+<header data-role="header" >
+	<h1>Accueil</h1>
+	<h2><span></span>Bienvenue sur mon site</h2>
+</header>
+
+<nav >
+	<ul data-role="listview" data-inset="true" data-filter="false">	
+	</ul>
+	
+</nav>
+<section data-role="content"> 
+    <div id="container">
+	
+      <canvas id="imageView" width="231" height="231">
+      </canvas>
+	  <a id="letter" href="#"></a>
+    </div>
+    <script type="text/javascript" src="canvas.js"></script>
+</section>
+<footer data-role="footer">
+	Copyright "IRC" 2012-2013, tous droits reserves.
+</footer>
+
+
+
+
+</body>
+
+</html>
