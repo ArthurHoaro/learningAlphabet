@@ -6,7 +6,7 @@
     </head>
     <body>
         <?php
-        // Coucou les loulous, je m'appelle BoB
+        // Je m'appelle André
         ?>
     </body>
 </html>
