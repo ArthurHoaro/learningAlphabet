@@ -24,7 +24,7 @@
 	
 </nav>
 <section data-role="content"> 
-<a><img src="blue.png" height="160px" width:="160px"/></a>
+<a><img src="blue.ico" height="160px" width:="160px"/></a>
 <a>b</a>
 <a>c</a>
 <a>d</a>
