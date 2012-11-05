@@ -2,28 +2,27 @@
 <html lang="fr">
 <head>
 <title> Premiere page </title>
-
-<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' >
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
+	<meta charset="utf-8">
+	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
+	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="style.css" />
-	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+	<script src="libs/jquery-1.8.2.min.js"></script>
+	<script src="libs/jquery.mobile-1.2.0.min.js"></script>
 	<script src="scripts/sons.js"></script>
-<meta charset="utf-8" /> 
 
-<script type="text/javascript">
-$(document).ready(function() 
-	{		
-		var arr = $(location).attr('href').split('#');
-		var lettre= arr[1];
-			$("#maj").html(lettre.toUpperCase());
-			$("#min").html(lettre);
-			$("#CursiveMaj").attr("src","images/cursive/animation_" +lettre+".gif");
-			$("#CursiveMin").attr("src","images/cursive/animationl_" +lettre+".gif");
-			$("#buttonPlay").attr("onclick","play_src('lettre_alpha','"+lettre.toUpperCase()+"')");
-			$("#buttonPlay").html(lettre.toUpperCase());
-});
-</script>
+	<script type="text/javascript">
+	$(document).ready(function() 
+		{		
+			var arr = $(location).attr('href').split('#');
+			var lettre= arr[1];
+				$("#maj").html(lettre.toUpperCase());
+				$("#min").html(lettre);
+				$("#CursiveMaj").attr("src","images/cursive/animation_" +lettre+".gif");
+				$("#CursiveMin").attr("src","images/cursive/animationl_" +lettre+".gif");
+				$("#buttonPlay").attr("onclick","play_src('lettre_alpha','"+lettre.toUpperCase()+"')");
+				$("#buttonPlay").html(lettre.toUpperCase());
+	});
+	</script>
 
 </head>
 
