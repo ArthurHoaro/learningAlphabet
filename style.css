@@ -1,8 +1,27 @@
 
 
 a{
+margin: 5px 5px ; 
 display:inline-block;
+text-align: center;
 height: 160px;
 width:160px;
 border:1px solid black;
+font-size: 8em;
+background-image: linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
+background-image: -o-linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
+background-image: -moz-linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
+background-image: -webkit-linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
+background-image: -ms-linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, rgb(235,235,235)),
+	color-stop(0.69, rgb(6,0,189))
+);
+color:white !important;
+text-decoration: none;
 }
+
+

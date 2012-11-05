@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Sons Lib usages</title>
+		<script type="text/javascript" charset="utf-8" src="libs/jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="libs/jquery.mobile-1.2.0.min.js"></script>
+		<script type="text/javascript" charset="utf-8" src="scripts/sons.js"></script>
+		<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
+		<script type="text/javascript" charset="utf-8">
+			$(document).ready(function() {	
+				$('#pause_but').hide();
+				$('.but').click(function() {
+					$('#play_but').toggle();
+					$('#pause_but').toggle();
+				});
+			});
+		</script>
+	</head>
+ <body>
+    <h1>Hello world</h1>
+
+    <!-- Simple audio playback -->
+	<audio id="lettre_alpha">
+		<source src="sons/en_alphabet.mp3"></source>
+		<source src="sons/en_alphabet.ogg"></source>
+	</audio>
+
+	<a data-role="button" onclick="play('lettre_alpha')" class="but" id="play_but">Play</a>
+	<a data-role="button" onclick="pause('lettre_alpha')" class="but" id="pause_but">Pause</a>
+	<a data-role="button" onclick="stop('lettre_alpha')" class="but" id="pause_but">Stop</a>
+	<a data-role="button" onclick="play_src('lettre_alpha', 'en_alphabet')" class="but">Play Alpha</a>
+	<a data-role="button" onclick="play_src('lettre_alpha', 'president')" class="but">Play Président</a>
+ </body>
+</html>
