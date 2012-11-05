@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title> Premiere page </title>
+	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
+	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="libs/jquery-1.8.2.min.js"></script>
+	<script src="libs/jquery.mobile-1.2.0.min.js"></script>
+	<script src="scripts/sons.js"></script><meta charset="utf-8" /> 
+<script type="text/javascript">
+var cpt = 0;
+var tab = new Array();
+tab[0] = "a";
+tab[1] = "b";
+tab[2] = "c";
+tab[3] = "d";
+tab[4] = "e";
+tab[5] = "f";
+tab[6] = "g";
+tab[7] = "h";
+tab[8] = "i";
+tab[9] = "j";
+tab[10] = "k";
+tab[11] = "l";
+tab[12] = "m";
+tab[13] = "n";
+tab[14] = "o";
+tab[15] = "p";
+tab[16] = "q";
+tab[17] = "r";
+tab[18] = "s";
+tab[19] = "t";
+tab[20] = "u";
+tab[21] = "v";
+tab[22] = "w";
+tab[23] = "x";
+tab[24] = "y";
+tab[25] = "z";
+
+$(document).ready(function() 
+{	
+
+	diapo();
+
+});
+			
+function diapo(){
+	lettre = tab[cpt];
+	$("#maj").html(lettre.toUpperCase());
+	$("#min").html(lettre);	
+	play_src('lettre_alpha',lettre.toUpperCase());
+	cpt++;
+	if(cpt!=26){
+		setTimeout("diapo()",3000);
+	}	
+}
+</script>
+
+</head>
+
+<body>
+
+<header data-role="header" >
+	<h1>Accueil</h1>
+	<h2><span></span>Bienvenue sur mon site</h2>	
+</header>
+
+<section data-role="content"> 
+<a id="maj"></a>
+<a id="min"></a>
+<audio id="lettre_alpha">
+</audio>
+</section>
+<footer data-role="footer">
+	Copyright "IRC" 2012-2013, tous droits reserves.
+</footer>
+</body>
+
+</html>
