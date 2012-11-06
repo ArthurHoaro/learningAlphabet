@@ -1,0 +1,19 @@
+<scores>
+	<jeux id="test">
+		<jeu id="1">
+
+			<date val="2012-11-06">
+				<note>2</note>
+			</date>
+			<date val="2012-11-07">
+				<note>5</note>
+			</date>			
+		</jeu>
+		<jeu id="2">
+			
+		</jeu>
+		<jeu id="3">
+			
+		</jeu>
+	</jeux>	
+</scores>

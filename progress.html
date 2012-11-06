@@ -10,22 +10,42 @@
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
   <script language="javascript" type="text/javascript" src="libs/jquery.jqplot.min.js"></script>
+  <script language="javascript" type="text/javascript" src="libs/jqplot.dateAxisRenderer.min.js"></script>
+  <script language="javascript" type="text/javascript" src="scripts/xml.js"></script>
 
-	 <script type="text/javascript">
-   $(document).ready(
-    function(){
-      $.jqplot('graph',  [[[1, 2],[3,5.12],[5,13.1],[7,33.6],[9,85.9],[11,219.9]]]);
-    }
-    );
+  <script type="text/javascript">
+$(document).ready(
+
+	function(){		
+
+		writeScoreToXml(2,'2012-11-06',5);
+		writeScoreToXml(2,'2012-11-07',10);
+		var tab =  new Array();		
+		getValuesFromXml(tab,"1");		
+ 		  var plot1 = $.jqplot('graph', [tab],  {
+		      title:'Progression',
+		      gridPadding:{right:35},
+		      axes:{
+		        xaxis:{
+		          renderer:$.jqplot.DateAxisRenderer,
+		          tickOptions:{formatString:' %#d-%b-%y'}	          
+		        }
+		      },
+		      series:[{lineWidth:4, markerOptions:{style:'square'}}]
+		  });
+ 	}
+);
+
 
    </script>
+
 </head>
 
 
 <body>
 <header data-role="header" >
 	<h1>Accueil</h1>
-	<h2><span></span>Bienvenue sur mon site</h2>
+	<h2><span></span>Progression</h2>
 </header>
 
 <nav >
