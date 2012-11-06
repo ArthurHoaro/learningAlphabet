@@ -629,7 +629,7 @@ window.addEventListener('load', function () {
 		});
   
 		/*Marge d'erreur sur la position des points*/
-		var marge = 9;
+		var marge = 10;
 		/*alert(document.getElementById('letter').innerHTML);*/
 		tableauX_letter = new Array();
 		tableauY_letter = new Array();
