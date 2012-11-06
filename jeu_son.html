@@ -12,56 +12,42 @@
 	<!-- Drag and drop pour les mobiles -->
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
 	<script src="scripts/random.js"></script>
-	<script src="scripts/array.js"></script>
+	<script type="text/javascript" charset="utf-8" src="scripts/sons.js"></script>
 	<meta charset="utf-8" /> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
 		$(document).ready(function() {		
 			var solution = getRandomLetter();
-			var listeLettres = getRandomList(4);
+			var listeLettres = getRandomList(4, solution);
 
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
-				$('#sortable').append('<li class="lettre">'+ listeLettres[i] +'</li>');
+				$('#lettres').append('<a class="lettre">'+ listeLettres[i] +'</a>');
 			}
-			$('#sortable').listview('refresh');
-			alert(listeLettres.sort());
+
+			play_src('lettre_alpha', solution);
+
+			$('.lettre').click(function() {
+				if ( $(this).html() == solution )
+					alert('OK');
+				else 
+					alert('KO');
+			});
 		});
-
-		$(document).bind('pageinit', function() {
-		    $( "#sortable" ).sortable();
-		    $( "#sortable" ).disableSelection();
-		   // <!-- Refresh list to the end of sort to have a correct display -->
-		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
-	     		$('#sortable').listview('refresh');
-	     		alert(checkOrdreAlpha());
-		    });
-	  	});
-
-	  	function checkOrdreAlpha() {
-	  		var curList = new Array();
-	  		var i = 0;
-	  		$('.lettre').each(function() {
-	  			curList[i++] = $(this).html();
-	  		});
-	  		var solution = copyArray(curList);
-	  		solution.sort();
-	  		return arrayEqual(curList, solution);
-	  	}
 	</script>
 </head>
 <body>
 
 <header data-role="header">
-	<h1>Jeu tri</h1>
+	<h1>Jeu son</h1>
 	<h2><span></span>Bienvenue sur mon site</h2>	
 </header>
 
-<section data-role="content"> 
-	<div data-role="content" data-theme="c">
-		<ul data-role="listview" data-inset="true" data-theme="d" id="sortable">
-			<li data-role="list-divider">Ranger dans l'ordre alphabétique</li>
-		</ul>
-	</div>
+<!-- Simple audio playback -->
+<audio id="lettre_alpha">
+</audio>
+
+<section data-role="content" data-theme="c" id="lettres">
+	
 </section>
 <footer data-role="footer">
 	Copyright "IRC" 2012-2013, tous droits reserves.
