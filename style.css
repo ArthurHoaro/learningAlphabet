@@ -1,6 +1,5 @@
 @import url("tri.css");
-
-a, .lettre{
+a,.lettre{
 margin: 5px 5px ; 
 display:inline-block;
 text-align: center;
@@ -34,7 +33,10 @@ width:231px;
 font-size: 12em;
 margin:0px;
 padding:0px;
-border: 3px solid #000;
+border: 5px solid #000;
+-moz-border-radius:5px;
+-webkit-border-radius:5px;
+border-radius:5px;
 background-image: linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
 background-image: -o-linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
 background-image: -moz-linear-gradient(top, rgb(235,235,235) 0%, rgb(6,0,189) 69%);
@@ -56,11 +58,14 @@ text-decoration: none;
 }
 #imageView 
 { 
-	border: 3px solid #000;
+	border: 5px solid #000;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
 }
 #imageTemp 
 { 
 	position: absolute; 
-	top: 1px; 
-	left: 1px;	
+	top: 5px; 
+	left: 5px;	
 }
