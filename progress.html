@@ -17,11 +17,14 @@
 $(document).ready(
 
 	function(){		
-
+		//ecriture des scores avec l'id du jeu, la date, le score)
 		writeScoreToXml(2,'2012-11-06',5);
 		writeScoreToXml(2,'2012-11-07',10);
-		var tab =  new Array();		
-		getValuesFromXml(tab,"1");		
+
+
+		var tab =  new Array();	
+			//on recupere les scores du jeu id=2 et on trace la courbe
+		getValuesFromXml(tab,2);		
  		  var plot1 = $.jqplot('graph', [tab],  {
 		      title:'Progression',
 		      gridPadding:{right:35},
