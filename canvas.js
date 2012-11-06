@@ -611,6 +611,23 @@ window.addEventListener('load', function () {
   // #imageTemp is cleared. This function is called each time when the user 
   // completes a drawing operation.
   function img_update () {
+		$( "#popupNon" ).bind({
+		   popupafterclose: function(event, ui) {
+				document.getElementById('letter').style.border='5px solid black';
+				document.getElementById('letter' ).style["boxShadow"] ='none';
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				random_letter();
+		   }
+		});
+		$( "#popupOui" ).bind({
+		   popupafterclose: function(event, ui) {
+				document.getElementById('letter').style.border='5px solid black';
+				document.getElementById('letter' ).style["boxShadow"] ='none';
+				context.clearRect(0, 0, canvas.width, canvas.height);
+				random_letter();
+		   }
+		});
+  
 		/*Marge d'erreur sur la position des points*/
 		var marge = 9;
 		/*alert(document.getElementById('letter').innerHTML);*/
@@ -650,15 +667,19 @@ window.addEventListener('load', function () {
 			{
 				document.getElementById("points").innerHTML = "0 Point... Essaie encore!";
 			}
-			else if(total<=10)
+			else if(total==1)
+			{
+				document.getElementById("points").innerHTML = "1 Point! Mieux que rien!";
+			}
+			else if(total<=5)
 			{
 				document.getElementById("points").innerHTML = total+" Points. Pas mal!";
 			}
-			else if(total<=20)
+			else if(total<=10)
 			{
 				document.getElementById("points").innerHTML = total+" Points! Super!";
 			}
-			else if(total<=50)
+			else if(total<=20)
 			{
 				document.getElementById("points").innerHTML = total+" Points! Génial!!";
 			}
@@ -666,26 +687,30 @@ window.addEventListener('load', function () {
 			{
 				document.getElementById("points").innerHTML = total+" Points! Extraordinaire!!!";
 			}
-			alert('Dommage... Essaie encore!');
+			$("#popupNon").popup("open",{positionTo:"#imageView"});
 		}
 		else
 		{
 			document.getElementById('letter').style.border='5px solid green';
 			document.getElementById('letter').style["boxShadow"] ='0px 0px 20px green';
-			total = total +5;
+			total = total +1;
 			if(total==0)
 			{
 				document.getElementById("points").innerHTML = "0 Point... Essaie encore!";
 			}
-			else if(total<=10)
+			else if(total==1)
+			{
+				document.getElementById("points").innerHTML = "1 Point! Mieux que rien!";
+			}
+			else if(total<=5)
 			{
 				document.getElementById("points").innerHTML = total+" Points. Pas mal!";
 			}
-			else if(total<=20)
+			else if(total<=10)
 			{
 				document.getElementById("points").innerHTML = total+" Points! Super!";
 			}
-			else if(total<=50)
+			else if(total<=20)
 			{
 				document.getElementById("points").innerHTML = total+" Points! Génial!!";
 			}
@@ -693,13 +718,15 @@ window.addEventListener('load', function () {
 			{
 				document.getElementById("points").innerHTML = total+" Points! Extraordinaire!!!";
 			}
-			alert('Bravo! Tu marques 5 Points!');
+			$("#popupOui").popup("open",{positionTo:"#imageView"});
+			
 		}
-		document.getElementById('letter').style.border='5px solid black';
-		document.getElementById('letter').style["boxShadow"] ='none';
 		contexto.drawImage(canvas, 0, 0);
+		
+		/*document.getElementById('letter').style.border='5px solid black';
+		document.getElementById('letter' ).style["boxShadow"] ='none';
 		context.clearRect(0, 0, canvas.width, canvas.height);
-		random_letter();
+		random_letter();*/
 		
   }
 
