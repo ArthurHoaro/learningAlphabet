@@ -62,3 +62,10 @@ text-decoration: none;
 	top: 1px; 
 	left: 1px;	
 }
+
+#graph
+{
+	width: 600px;
+	height: 350px;
+	border: 1px solid black;
+}
