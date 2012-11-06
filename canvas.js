@@ -1,4 +1,4 @@
-var tableauX_global = new Array();
+﻿var tableauX_global = new Array();
 var tableauY_global = new Array();
 
 var tableauX_A = new Array();
@@ -267,24 +267,233 @@ tableauY_N[6] = 57;
 tableauX_global['N'] = tableauX_N;
 tableauY_global['N'] = tableauY_N;
 
-var tableauX_ = new Array();
-var tableauY_ = new Array();
-tableauX_[0] = 0;
-tableauY_[0] = 0;
-tableauX_[1] = 0;
-tableauY_[1] = 0;
-tableauX_[2] = 0;
-tableauY_[2] = 0;
-tableauX_[3] = 0;
-tableauY_[3] = 0;
-tableauX_[4] = 0;
-tableauY_[4] = 0;
-tableauX_[5] = 0;
-tableauY_[5] = 0;
-tableauX_[6] = 0;
-tableauY_[6] = 0;
-tableauX_global[''] = tableauX_;
-tableauY_global[''] = tableauY_;
+var tableauX_O = new Array();
+var tableauY_O = new Array();
+tableauX_O[0] = 117;
+tableauY_O[0] = 54;
+tableauX_O[1] = 72;
+tableauY_O[1] = 73;
+tableauX_O[2] = 72;
+tableauY_O[2] = 146;
+tableauX_O[3] = 118;
+tableauY_O[3] = 179;
+tableauX_O[4] = 156;
+tableauY_O[4] = 157;
+tableauX_O[5] = 171;
+tableauY_O[5] = 115;
+tableauX_O[6] = 159;
+tableauY_O[6] = 72;
+tableauX_global['O'] = tableauX_O;
+tableauY_global['O'] = tableauY_O;
+
+var tableauX_P = new Array();
+var tableauY_P = new Array();
+tableauX_P[0] = 83;
+tableauY_P[0] = 58;
+tableauX_P[1] = 144;
+tableauY_P[1] = 59;
+tableauX_P[2] = 140;
+tableauY_P[2] = 118;
+tableauX_P[3] = 80;
+tableauY_P[3] = 117;
+tableauX_P[4] = 81;
+tableauY_P[4] = 152;
+tableauX_P[5] = 81;
+tableauY_P[5] = 168;
+tableauX_P[6] = 159;
+tableauY_P[6] = 87;
+tableauX_global['P'] = tableauX_P;
+tableauY_global['P'] = tableauY_P;
+
+var tableauX_Q = new Array();
+var tableauY_Q = new Array();
+tableauX_Q[0] = 115;
+tableauY_Q[0] = 55;
+tableauX_Q[1] = 67;
+tableauY_Q[1] = 90;
+tableauX_Q[2] = 69;
+tableauY_Q[2] = 143;
+tableauX_Q[3] = 147;
+tableauY_Q[3] = 161;
+tableauX_Q[4] = 166;
+tableauY_Q[4] = 94;
+tableauX_Q[5] = 126;
+tableauY_Q[5] = 145;
+tableauX_Q[6] = 174;
+tableauY_Q[6] = 180;
+tableauX_global['Q'] = tableauX_Q;
+tableauY_global['Q'] = tableauY_Q;
+
+var tableauX_R = new Array();
+var tableauY_R = new Array();
+tableauX_R[0] = 75;
+tableauY_R[0] = 55;
+tableauX_R[1] = 76;
+tableauY_R[1] = 115;
+tableauX_R[2] = 75;
+tableauY_R[2] = 174;
+tableauX_R[3] = 152;
+tableauY_R[3] = 59;
+tableauX_R[4] = 158;
+tableauY_R[4] = 101;
+tableauX_R[5] = 119;
+tableauY_R[5] = 117;
+tableauX_R[6] = 163;
+tableauY_R[6] = 172;
+tableauX_global['R'] = tableauX_R;
+tableauY_global['R'] = tableauY_R;
+
+var tableauX_S = new Array();
+var tableauY_S = new Array();
+tableauX_S[0] = 154;
+tableauY_S[0] = 78;
+tableauX_S[1] = 120;
+tableauY_S[1] = 53;
+tableauX_S[2] = 79;
+tableauY_S[2] = 81;
+tableauX_S[3] = 116;
+tableauY_S[3] = 111;
+tableauX_S[4] = 158;
+tableauY_S[4] = 151;
+tableauX_S[5] = 115;
+tableauY_S[5] = 173;
+tableauX_S[6] = 75;
+tableauY_S[6] = 146;
+tableauX_global['S'] = tableauX_S;
+tableauY_global['S'] = tableauY_S;
+
+var tableauX_T = new Array();
+var tableauY_T = new Array();
+tableauX_T[0] = 164;
+tableauY_T[0] = 56;
+tableauX_T[1] = 120;
+tableauY_T[1] = 57;
+tableauX_T[2] = 74;
+tableauY_T[2] = 57;
+tableauX_T[3] = 119;
+tableauY_T[3] = 86;
+tableauX_T[4] = 118;
+tableauY_T[4] = 109;
+tableauX_T[5] = 118;
+tableauY_T[5] = 141;
+tableauX_T[6] = 117;
+tableauY_T[6] = 172;
+tableauX_global['T'] = tableauX_T;
+tableauY_global['T'] = tableauY_T;
+
+var tableauX_U = new Array();
+var tableauY_U = new Array();
+tableauX_U[0] = 75;
+tableauY_U[0] = 53;
+tableauX_U[1] = 74;
+tableauY_U[1] = 85;
+tableauX_U[2] = 74;
+tableauY_U[2] = 149;
+tableauX_U[3] = 114;
+tableauY_U[3] = 175;
+tableauX_U[4] = 157;
+tableauY_U[4] = 148;
+tableauX_U[5] = 156;
+tableauY_U[5] = 103;
+tableauX_U[6] = 156;
+tableauY_U[6] = 54;
+tableauX_global['U'] = tableauX_U;
+tableauY_global['U'] = tableauY_U;
+
+var tableauX_V = new Array();
+var tableauY_V = new Array();
+tableauX_V[0] = 69;
+tableauY_V[0] = 50;
+tableauX_V[1] = 84;
+tableauY_V[1] = 84;
+tableauX_V[2] = 98;
+tableauY_V[2] = 128;
+tableauX_V[3] = 118;
+tableauY_V[3] = 163;
+tableauX_V[4] = 134;
+tableauY_V[4] = 142;
+tableauX_V[5] = 146;
+tableauY_V[5] = 108;
+tableauX_V[6] = 162;
+tableauY_V[6] = 57;
+tableauX_global['V'] = tableauX_V;
+tableauY_global['V'] = tableauY_V;
+
+var tableauX_W = new Array();
+var tableauY_W = new Array();
+tableauX_W[0] = 47;
+tableauY_W[0] = 63;
+tableauX_W[1] = 74;
+tableauY_W[1] = 162;
+tableauX_W[2] = 98;
+tableauY_W[2] = 105;
+tableauX_W[3] = 118;
+tableauY_W[3] = 59;
+tableauX_W[4] = 139;
+tableauY_W[4] = 111;
+tableauX_W[5] = 158;
+tableauY_W[5] = 162;
+tableauX_W[6] = 192;
+tableauY_W[6] = 62;
+tableauX_global['W'] = tableauX_W;
+tableauY_global['W'] = tableauY_W;
+
+var tableauX_X = new Array();
+var tableauY_X = new Array();
+tableauX_X[0] = 82;
+tableauY_X[0] = 56;
+tableauX_X[1] = 117;
+tableauY_X[1] = 111;
+tableauX_X[2] = 156;
+tableauY_X[2] = 170;
+tableauX_X[3] = 77;
+tableauY_X[3] = 175;
+tableauX_X[4] = 157;
+tableauY_X[4] = 51;
+tableauX_X[5] = 95;
+tableauY_X[5] = 78;
+tableauX_X[6] = 146;
+tableauY_X[6] = 152;
+tableauX_global['X'] = tableauX_X;
+tableauY_global['X'] = tableauY_X;
+
+var tableauX_Y = new Array();
+var tableauY_Y = new Array();
+tableauX_Y[0] = 73;
+tableauY_Y[0] = 51;
+tableauX_Y[1] = 91;
+tableauY_Y[1] = 77;
+tableauX_Y[2] = 118;
+tableauY_Y[2] = 115;
+tableauX_Y[3] = 141;
+tableauY_Y[3] = 82;
+tableauX_Y[4] = 160;
+tableauY_Y[4] = 54;
+tableauX_Y[5] = 117;
+tableauY_Y[5] = 150;
+tableauX_Y[6] = 118;
+tableauY_Y[6] = 174;
+tableauX_global['Y'] = tableauX_Y;
+tableauY_global['Y'] = tableauY_Y;
+
+var tableauX_Z = new Array();
+var tableauY_Z = new Array();
+tableauX_Z[0] = 81;
+tableauY_Z[0] = 56;
+tableauX_Z[1] = 117;
+tableauY_Z[1] = 54;
+tableauX_Z[2] = 155;
+tableauY_Z[2] = 57;
+tableauX_Z[3] = 115;
+tableauY_Z[3] = 113;
+tableauX_Z[4] = 76;
+tableauY_Z[4] = 166;
+tableauX_Z[5] = 114;
+tableauY_Z[5] = 173;
+tableauX_Z[6] = 159;
+tableauY_Z[6] = 171;
+tableauX_global['Z'] = tableauX_Z;
+tableauY_global['Z'] = tableauY_Z;
 
 function random_letter()
 {
@@ -315,8 +524,8 @@ function random_letter()
 	tabletter[23]="X";
 	tabletter[24]="Y";
 	tabletter[25]="Z";
-	/*document.getElementById("letter").innerHTML = tabletter[Math.floor ( Math.random() * 26 )];*/
-	document.getElementById("letter").innerHTML = tabletter[14];
+	document.getElementById("letter").innerHTML = tabletter[Math.floor ( Math.random() * 26 )];
+	/*document.getElementById("letter").innerHTML = tabletter[25];*/
 }
 
 // Keep everything in anonymous function, called on window load.
@@ -328,6 +537,7 @@ window.addEventListener('load', function () {
   var tool;
   var tool_default = 'pencil';
   var compteur = 0;
+  var total = 0;
   var tableauX = new Array();
   var tableauY = new Array();
 
@@ -427,19 +637,69 @@ window.addEventListener('load', function () {
 				break;
 			}
 		}
-		alert(tableauX[0]+' - '+tableauY[0]);
+		/*alert(tableauX[0]+' - '+tableauY[0]);*/
+		alert(tableauX.length);
 		tableauX = new Array();
 		tableauY = new Array();
 		compteur=0;
 		if(flag==1)
 		{
-			document.getElementById('letter').style.border='3px solid red';
+			document.getElementById('letter').style.border='5px solid red';
+			document.getElementById('letter').style["boxShadow"] ='0px 0px 20px red';
+			if(total==0)
+			{
+				document.getElementById("points").innerHTML = "0 Point... Essaie encore!";
+			}
+			else if(total<=10)
+			{
+				document.getElementById("points").innerHTML = total+" Points. Pas mal!";
+			}
+			else if(total<=20)
+			{
+				document.getElementById("points").innerHTML = total+" Points! Super!";
+			}
+			else if(total<=50)
+			{
+				document.getElementById("points").innerHTML = total+" Points! Génial!!";
+			}
+			else
+			{
+				document.getElementById("points").innerHTML = total+" Points! Extraordinaire!!!";
+			}
+			alert('Dommage... Essaie encore!');
 		}
 		else
 		{
-			document.getElementById('letter').style.border='3px solid green';
+			document.getElementById('letter').style.border='5px solid green';
+			document.getElementById('letter').style["boxShadow"] ='0px 0px 20px green';
+			total = total +5;
+			if(total==0)
+			{
+				document.getElementById("points").innerHTML = "0 Point... Essaie encore!";
+			}
+			else if(total<=10)
+			{
+				document.getElementById("points").innerHTML = total+" Points. Pas mal!";
+			}
+			else if(total<=20)
+			{
+				document.getElementById("points").innerHTML = total+" Points! Super!";
+			}
+			else if(total<=50)
+			{
+				document.getElementById("points").innerHTML = total+" Points! Génial!!";
+			}
+			else
+			{
+				document.getElementById("points").innerHTML = total+" Points! Extraordinaire!!!";
+			}
+			alert('Bravo! Tu marques 5 Points!');
 		}
+		document.getElementById('letter').style.border='5px solid black';
+		document.getElementById('letter').style["boxShadow"] ='none';
 		contexto.drawImage(canvas, 0, 0);
+		context.clearRect(0, 0, canvas.width, canvas.height);
+		random_letter();
 		
   }
 
@@ -454,7 +714,6 @@ window.addEventListener('load', function () {
     // This is called when you start holding down the mouse button.
     // This starts the pencil drawing.
     this.mousedown = function (ev) {
-		context.clearRect(0, 0, canvas.width, canvas.height);
 		context.beginPath();
         context.moveTo(ev._x, ev._y);
         tool.started = true;
@@ -465,8 +724,12 @@ window.addEventListener('load', function () {
     // the mouse button).
     this.mousemove = function (ev) {
       if (tool.started) {
-	  	tableauX[compteur] = ev._x;
-		tableauY[compteur] = ev._y;
+		//Evite que l'utilisateur "gribouille" pour avoir juste
+		if(tableauX.length <340)
+		{
+			tableauX[compteur] = ev._x;
+			tableauY[compteur] = ev._y;
+		}
 		compteur++;
         context.lineTo(ev._x, ev._y);
         context.stroke();
