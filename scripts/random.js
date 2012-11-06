@@ -7,7 +7,11 @@
  * @return : tableau de "nb" lettres différentes contenant "solution"
  **/
 function getRandomList(nb, solution, lower) {
-	var out = Array();
+	var out = new Array();
+	
+	if( solution == null )
+		solution = getRandomLetter();
+
 	out[0] = solution;
 
 	for (var i=1; i<nb; i++) {

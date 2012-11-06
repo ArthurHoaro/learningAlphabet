@@ -4,7 +4,7 @@
 <title> Tri Drag'n'Drop HTML5 </title>
 	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
 	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
-	<link rel="stylesheet" href="style.css" />
+	
 	<script src="libs/jquery-1.8.2.min.js"></script>
 	<script src="libs/jquery.mobile-1.2.0.min.js"></script>
 	<script src="libs/jquery-ui-1.9.1/js/jquery-ui-1.9.1.custom.min.js"></script>
@@ -12,16 +12,19 @@
 	<!-- Drag and drop pour les mobiles -->
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
 	<script src="scripts/random.js"></script>
+	<script src="scripts/array.js"></script>
 	<meta charset="utf-8" /> 
-
+	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
 		$(document).ready(function() {		
 			var solution = getRandomLetter();
-			var listeLettres = getRandomList(4, solution);
+			var listeLettres = getRandomList(4);
 
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
-				$('#sortable').append('<li><a id="maj">'+ listeLettres[i] +'</a></li>');
+				$('#sortable').append('<li class="lettre">'+ listeLettres[i] +'</li>');
 			}
+			$('#sortable').listview('refresh');
+			alert(listeLettres.sort());
 		});
 
 		$(document).bind('pageinit', function() {
@@ -30,9 +33,20 @@
 		   // <!-- Refresh list to the end of sort to have a correct display -->
 		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
 	     		$('#sortable').listview('refresh');
+	     		alert(checkOrdreAlpha());
 		    });
 	  	});
 
+	  	function checkOrdreAlpha() {
+	  		var curList = new Array();
+	  		var i = 0;
+	  		$('.lettre').each(function() {
+	  			curList[i++] = $(this).html();
+	  		});
+	  		var solution = copyArray(curList);
+	  		solution.sort();
+	  		return arrayEqual(curList, solution);
+	  	}
 	</script>
 </head>
 <body>
