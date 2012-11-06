@@ -1,6 +1,6 @@
 @import url("tri.css");
 
-a{
+a, .lettre{
 margin: 5px 5px ; 
 display:inline-block;
 text-align: center;
