@@ -638,7 +638,7 @@ window.addEventListener('load', function () {
 			}
 		}
 		/*alert(tableauX[0]+' - '+tableauY[0]);*/
-		alert(tableauX.length);
+		/*alert(tableauX.length);*/
 		tableauX = new Array();
 		tableauY = new Array();
 		compteur=0;
