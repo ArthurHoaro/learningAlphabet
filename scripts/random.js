@@ -10,7 +10,7 @@ function getRandomList(nb, solution, lower) {
 	var out = Array();
 	out[0] = solution;
 
-	for (var i=1; i<nb-1; i++) {
+	for (var i=1; i<nb; i++) {
 		var letter = getRandomLetter(lower);		
 		if( jQuery.inArray(letter, out) == -1 )
 			out[i] = letter;
