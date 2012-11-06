@@ -31,6 +31,8 @@ left:0px;
 height: 231px;
 width:231px;
 font-size: 12em;
+display:inline-block;
+text-align:center;
 margin:0px;
 padding:0px;
 border: 5px solid #000;
