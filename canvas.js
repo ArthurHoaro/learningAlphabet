@@ -587,9 +587,9 @@ window.addEventListener('load', function () {
     canvas.addEventListener('mousedown', ev_canvas, false);
     canvas.addEventListener('mousemove', ev_canvas, false);
     canvas.addEventListener('mouseup',   ev_canvas, false);
-    /*canvas.addEventListener('touchstart',   ev_canvas, false);
+    canvas.addEventListener('touchmove',   ev_canvas, false);
+    canvas.addEventListener('touchstart',   ev_canvas, false);
     canvas.addEventListener('touchend',   ev_canvas, false);
-    canvas.addEventListener('touchmove',   ev_canvas, false);*/
   }
 
   // The general-purpose event handler. This function just determines the mouse 
@@ -746,24 +746,23 @@ window.addEventListener('load', function () {
 
     // This is called when you start holding down the mouse button.
     // This starts the pencil drawing.
-    this.mousedown = function (ev) {
-    	alert('mdown');
+    this.touchstart = function (ev) {
 		context.beginPath();
         context.moveTo(ev._x, ev._y);
+		/*context.lineTo(100,100);*/
         tool.started = true;
     };
-    // this.touchdown = function (ev) {
-        // alert('down');
-		// context.beginPath();
-        // context.moveTo(ev._x, ev._y);
-        // tool.started = true;
-    // };
+	this.mousedown = function (ev) {
+		context.beginPath();
+        context.moveTo(ev._x, ev._y);
+		/*context.lineTo(100,100);*/
+        tool.started = true;
+    };
 
     // This function is called every time you move the mouse. Obviously, it only 
     // draws if the tool.started state is set to true (when you are holding down 
     // the mouse button).
-    this.mousemove = function (ev) {
-    	alert('mmove');
+    this.touchmove = function (ev) {
       if (tool.started) {
 		//Evite que l'utilisateur "gribouille" pour avoir juste
 		if(tableauX.length <340)
@@ -776,40 +775,40 @@ window.addEventListener('load', function () {
         context.stroke();
       }
     };
-    // this.touchmove = function (ev) {
-    	// alert('move');
-      // if (tool.started) {
+	this.mousemove = function (ev) {
+      if (tool.started) {
 		//Evite que l'utilisateur "gribouille" pour avoir juste
-		// if(tableauX.length <340)
-		// {
-			// tableauX[compteur] = ev._x;
-			// tableauY[compteur] = ev._y;
-		// }
-		// compteur++;
-        // context.lineTo(ev._x, ev._y);
-        // context.stroke();
-      // }
-    // };
+		if(tableauX.length <340)
+		{
+			tableauX[compteur] = ev._x;
+			tableauY[compteur] = ev._y;
+		}
+		compteur++;
+        context.lineTo(ev._x, ev._y);
+        context.stroke();
+      }
+    };
 
     // This is called when you release the mouse button.
-    this.mouseup = function (ev) {
-    	alert('mup');
+    this.touchend = function (ev) {
+      if (tool.started) {
+        /*tool.touchmove(ev);*/
+        tool.started = false;
+        img_update();
+      }
+    };
+	this.mouseup = function (ev) {
       if (tool.started) {
         tool.mousemove(ev);
         tool.started = false;
         img_update();
       }
     };
-	// this.touchup = function (ev) {
-		// alert('up');
-      // if (tool.started) {
-        // tool.touchmove(ev);
-        // tool.started = false;
-        // img_update();
-      // }
-    // };
   };
 
   init();
 
 }, false); }
+$(document).bind("touchmove",function(event){
+	event.preventDefault();
+   });
