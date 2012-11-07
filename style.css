@@ -1,4 +1,6 @@
 @import url("tri.css");
+@import url("menus.css");
+
 .lettre{
 margin: 5px 5px ; 
 display:inline-block;
