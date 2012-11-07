@@ -1,4 +1,6 @@
 @import url("tri.css");
+@import url("menus.css");
+
 .lettre{
 margin: 5px 5px ; 
 display:inline-block;
@@ -100,8 +102,34 @@ border: 2px solid #ccc;
 	-moz-border-radius: 1em /*{global-radii-buttons}*/;
 	-webkit-border-radius: 1em /*{global-radii-buttons}*/;
 	border-radius: 0.1em /*{global-radii-buttons}*/;
+	text-decoration: none;
 }
 
+.minuscules{
+	margin: 5px 5px ; 
+	display:inline-block;
+	text-align: center;
+	height: 70px;
+	width:70px;
+	font-size: 3em;
+	border: 2px solid 		#ccc /*{c-bup-border}*/;
+	background: 			#eee /*{c-bup-background-color}*/;
+	font-weight: bold;
+	color: 					#3a3a3a /*{c-bup-color}*/;
+	text-shadow: 0 /*{c-bup-shadow-x}*/ 1px /*{c-bup-shadow-y}*/ 0 /*{c-bup-shadow-radius}*/ #fff /*{c-bup-shadow-color}*/;
+	background-image: -webkit-gradient(linear, left top, left bottom, from( #fff /*{c-bup-background-start}*/), to( #f1f1f1 /*{c-bup-background-end}*/)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Chrome 10+, Saf5.1+ */
+	background-image:    -moz-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* FF3.6 */
+	background-image:     -ms-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* IE10 */
+	background-image:      -o-linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/); /* Opera 11.10+ */
+	background-image:         linear-gradient( #fff /*{c-bup-background-start}*/, #f1f1f1 /*{c-bup-background-end}*/);	
+	-moz-box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ 			rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
+	-webkit-box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ 		rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
+	box-shadow: 0px 1px 4px /*{global-box-shadow-size}*/ 				rgba(0,0,0,.3) /*{global-box-shadow-color}*/;
+	-moz-border-radius: 1em /*{global-radii-buttons}*/;
+	-webkit-border-radius: 1em /*{global-radii-buttons}*/;
+	border-radius: 0.1em /*{global-radii-buttons}*/;
+}
 #list1{
 	width: 90%;
 	text-align: center;
