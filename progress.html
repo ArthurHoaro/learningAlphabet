@@ -18,10 +18,9 @@ $(document).ready(
 
 	function(){		
 		//ecriture des scores avec l'id du jeu, la date, le score)
-		writeScoreToXml(2,'2012-11-06',5);
-		writeScoreToXml(2,'2012-11-07',10);
-
-
+		//clearData();
+		writeScoreToXml(2,'2012-11-10',25);
+		writeScoreToXml(2,'2012-11-09',30);
 		var tab =  new Array();	
 			//on recupere les scores du jeu id=2 et on trace la courbe
 		getValuesFromXml(tab,2);		
@@ -36,6 +35,7 @@ $(document).ready(
 		      },
 		      series:[{lineWidth:4, markerOptions:{style:'square'}}]
 		  });
+		  //clearData();
  	}
 );
 
