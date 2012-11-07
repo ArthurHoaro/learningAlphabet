@@ -14,17 +14,26 @@
   <script language="javascript" type="text/javascript" src="scripts/xml.js"></script>
 
   <script type="text/javascript">
-$(document).ready(
 
-	function(){		
-		//ecriture des scores avec l'id du jeu, la date, le score)
-		//clearData();
-		writeScoreToXml(2,'2012-11-10',25);
-		writeScoreToXml(2,'2012-11-09',30);
-		var tab =  new Array();	
-			//on recupere les scores du jeu id=2 et on trace la courbe
-		getValuesFromXml(tab,2);		
- 		  var plot1 = $.jqplot('graph', [tab],  {
+$(document).ready(
+	function(){
+		// writeScoreToXml(1,'2012-06-11',4);
+		// writeScoreToXml(1,'2012-06-12',6);
+		// writeScoreToXml(2,'2012-06-12',0);
+		// writeScoreToXml(2,'2012-06-13',1);
+		// writeScoreToXml(2,'2012-06-15',10);
+		// writeScoreToXml(2,'2012-06-18',8);
+		// writeScoreToXml(4,'2012-06-12',0);
+		// writeScoreToXml(4,'2012-06-13',5);
+		loadGraph(1);
+	}
+);
+
+function loadGraph(id){
+	var tab =  new Array();				
+	getValuesFromXml(tab,id);	
+	$('#graph').empty();
+ 		var plot1 = $.jqplot('graph', [tab],  {
 		      title:'Progression',
 		      gridPadding:{right:35},
 		      axes:{
@@ -36,8 +45,12 @@ $(document).ready(
 		      series:[{lineWidth:4, markerOptions:{style:'square'}}]
 		  });
 		  //clearData();
- 	}
-);
+}
+
+function clear(){
+	clearData();
+	$('#graph').empty();
+}
 
 
    </script>
@@ -47,12 +60,17 @@ $(document).ready(
 
 <body>
 <header data-role="header" >
-	<h1>Accueil</h1>
+	<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true">Retour</a>
 	<h2><span></span>Progression</h2>
+	<a href="#" data-icon="delete" onclick="clear();">Clear Data</a>
 </header>
 
-<nav >
-	<ul data-role="listview" data-inset="true" data-filter="false">	
+<nav data-role="navbar">
+	<ul >	
+		<li><a href="#1" onclick="loadGraph(1);">Jeu 1</a></li>
+		<li><a href="#2"  onclick="loadGraph(2);">Jeu 2</a></li>
+		<li><a href="#3"  onclick="loadGraph(3);">Jeu 3</a></li>
+		<li><a href="#4"  onclick="loadGraph(4);">Jeu 4</a></li>
 	</ul>
 	
 </nav>
