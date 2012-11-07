@@ -613,16 +613,18 @@ window.addEventListener('load', function () {
   function img_update () {
 		$( "#popupNon" ).bind({
 		   popupafterclose: function(event, ui) {
-				document.getElementById('letter').style.border='5px solid black';
+				document.getElementById('letter').style.border='2px solid #ccc';
 				document.getElementById('letter' ).style["boxShadow"] ='none';
+				document.getElementById('letter').style.opacity = '1';
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				random_letter();
 		   }
 		});
 		$( "#popupOui" ).bind({
 		   popupafterclose: function(event, ui) {
-				document.getElementById('letter').style.border='5px solid black';
+				document.getElementById('letter').style.border='2px solid #ccc';
 				document.getElementById('letter' ).style["boxShadow"] ='none';
+				document.getElementById('letter').style.opacity = '1';
 				context.clearRect(0, 0, canvas.width, canvas.height);
 				random_letter();
 		   }
@@ -661,8 +663,9 @@ window.addEventListener('load', function () {
 		compteur=0;
 		if(flag==1)
 		{
-			document.getElementById('letter').style.border='5px solid red';
+			document.getElementById('letter').style.border='2px solid red';
 			document.getElementById('letter').style["boxShadow"] ='0px 0px 20px red';
+			document.getElementById('letter').style.opacity = '0.5';
 			if(total==0)
 			{
 				document.getElementById("points").innerHTML = "0 Point... Essaie encore!";
@@ -691,7 +694,7 @@ window.addEventListener('load', function () {
 		}
 		else
 		{
-			document.getElementById('letter').style.border='5px solid green';
+			document.getElementById('letter').style.border='2px solid green';
 			document.getElementById('letter').style["boxShadow"] ='0px 0px 20px green';
 			total = total +1;
 			if(total==0)
