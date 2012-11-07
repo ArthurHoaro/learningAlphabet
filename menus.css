@@ -1,0 +1,17 @@
+.menu a {
+	display: block;
+	width:100px; 
+	height:100px; 
+	margin:auto !important; 
+	text-align:center;
+}
+
+.menu a img {
+	width: 60px; 
+	height:60px; 
+	margin-top:18%;
+}
+
+.menu h3, .menu .ui-block-a, .menu .ui-block-b {
+	text-align:center;
+}
