@@ -16,36 +16,66 @@
 	<meta charset="utf-8" /> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
-		$(document).ready(function() {		
-			var solution = getRandomLetter();
-			var listeLettres = getRandomList(4);
-
+	var nbTourRestant=5;
+	var listeLettres;
+	function partie(){	
+			
+			listeLettres = getRandomList(4);
+			while(checkOrdreAlpha(true)==true){
+				listeLettres=getRandomList(4);
+				nbTourRestant++;
+			}
+			$('#sortable').empty();
+			$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
 				$('#sortable').append('<li class="lettre">'+ listeLettres[i] +'</li>');
 			}
 			$('#sortable').listview('refresh');
-			alert(listeLettres.sort());
-		});
-
-		$(document).bind('pageinit', function() {
-		    $( "#sortable" ).sortable();
+			//alert(listeLettres.sort());
+			$( "#sortable" ).sortable();
 		    $( "#sortable" ).disableSelection();
 		   // <!-- Refresh list to the end of sort to have a correct display -->
 		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
-	     		$('#sortable').listview('refresh');
-	     		alert(checkOrdreAlpha());
+	     		$('#sortable').listview('refresh'); 
+	     		 if(checkOrdreAlpha(false) && nbTourRestant>=0){
+	     		 	alert('OK');
+	     		 	if(nbTourRestant==0){
+	     		 		$('#sortable').empty();
+	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
+	     		 	}
+	     		 	else if(nbTourRestant>0){
+	     				partie();	     	
+	     			}		
+	       		}	
 		    });
-	  	});
+		   
 
-	  	function checkOrdreAlpha() {
+	}
+		$(document).ready(function() {	
+			partie();
+			
+		});		
+
+	  	function checkOrdreAlpha(test) {
 	  		var curList = new Array();
 	  		var i = 0;
-	  		$('.lettre').each(function() {
-	  			curList[i++] = $(this).html();
-	  		});
+	  		if(test){
+	  			curList=listeLettres;
+	  		}
+	  		else{
+		  		$('.lettre').each(function() {
+		  			curList[i++] = $(this).html();
+		  		});
+	  		}
 	  		var solution = copyArray(curList);
 	  		solution.sort();
-	  		return arrayEqual(curList, solution);
+	  		if (arrayEqual(curList, solution)) {
+	  			nbTourRestant--;
+	  			return true;
+	  		}
+	  		else
+	  			return false;
+	  		
 	  	}
 	</script>
 </head>
@@ -53,7 +83,7 @@
 
 <header data-role="header">
 	<h1>Jeu tri</h1>
-	<h2><span></span>Bienvenue sur mon site</h2>	
+	<h2 id="nbTourRestant"></h2>	
 </header>
 
 <section data-role="content"> 
