@@ -27,6 +27,7 @@ text-decoration: none;
 
 #letter
 {
+z-index:2;
 position:relative;
 height: 230px;
 width:230px;
@@ -64,6 +65,7 @@ border: 2px solid #ccc;
 #imageView 
 {
 	position:absolute;
+	z-index:1;
 }
 #imageTemp 
 { 

@@ -730,7 +730,7 @@ window.addEventListener('load', function () {
 	  if(ev.layerX==-64)
 	  {
 		ev._x=(ev.targetTouches[0].pageX - (canvas.offsetLeft+15));
-		ev._y=(ev.targetTouches[0].pageY - (canvas.offsetTop+130));
+		ev._y=(ev.targetTouches[0].pageY - (canvas.offsetTop+80));
       }
 	  else
 	  {
