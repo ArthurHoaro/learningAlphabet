@@ -78,7 +78,7 @@ function playAndroid(audio_id) {
 	audio_src = generate_android_sources(audio_id);
 
     // Create Media object from src   
-    my_media = new Media(audio_src,,function(e){alert('error'+e.toString())});           	
+    my_media = new Media(audio_src);           	
 
     // Play Full Title
     my_media.play();

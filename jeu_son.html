@@ -2,7 +2,6 @@
 <html lang="fr">
 <head>
 <title>AlphaBaby</title>
-	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
 	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />	
 	<script src="libs/jquery-1.8.2.min.js"></script>
 	<script src="libs/jquery.mobile-1.2.0.min.js"></script>		
@@ -62,21 +61,25 @@
 			$( "#popupNew" ).on({
 			   popupafterclose: function(event, ui) {
 					$('#lettres').empty();
-					$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
 					var date=getDateDuJour();
 					writeScoreToXml(1,date,score);
 					score=0;
-					NbTourRestant=5;
+					nbTourRestant=5;
 					partie();					
 			   }
 			});
 
-			
+			// Wait for PhoneGap to load
+			//
+			if( isAndroid() ) {
+				document.addEventListener("deviceready", onDeviceReady, false);
+			}
+			else {
+				partie();
+			}
+
 		});
 
-		// Wait for PhoneGap to load
-		//
-		document.addEventListener("deviceready", onDeviceReady, false);
 
 		// PhoneGap is ready
 		//
