@@ -13,13 +13,16 @@
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
 	<script src="scripts/random.js"></script>
 	<script src="scripts/array.js"></script>
+	<script src="scripts/xml.js"></script>
 	<meta charset="utf-8" /> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
 	var nbTourRestant=5;
 	var listeLettres;
+	var nbMouvement=0;
+	var score=0;
 	function partie(){	
-			
+			nbMouvement=0;			
 			listeLettres = getRandomList(4);
 			while(checkOrdreAlpha(true)==true){
 				listeLettres=getRandomList(4);
@@ -36,17 +39,19 @@
 		    $( "#sortable" ).disableSelection();
 		   // <!-- Refresh list to the end of sort to have a correct display -->
 		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
-	     		$('#sortable').listview('refresh'); 
+	     		$('#sortable').listview('refresh'); 	     		
 	     		 if(checkOrdreAlpha(false) && nbTourRestant>=0){
-	     		 	alert('OK');
+	     		 	alert('OK');	     		 	    
 	     		 	if(nbTourRestant==0){
 	     		 		$('#sortable').empty();
-	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
+	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);	     		 		
 	     		 	}
 	     		 	else if(nbTourRestant>0){
+	     		 		alert('nbmouve :'+nbMouvement +',' +score);
 	     				partie();	     	
 	     			}		
-	       		}	
+	       		}
+
 		    });
 		   
 
@@ -66,11 +71,17 @@
 		  		$('.lettre').each(function() {
 		  			curList[i++] = $(this).html();
 		  		});
+		  		nbMouvement++;
 	  		}
 	  		var solution = copyArray(curList);
-	  		solution.sort();
+	  		solution.sort();	  			
 	  		if (arrayEqual(curList, solution)) {
 	  			nbTourRestant--;
+	  			if(nbMouvement>=5)
+	     		 		score=score+0;
+	     		 	else
+	     		 		score=score+1;	
+	  			writeScoreToXml(2,getDateDuJour(),score);
 	  			return true;
 	  		}
 	  		else
@@ -82,8 +93,10 @@
 <body>
 
 <header data-role="header">
+	<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true" data-icon="back">Retour</a>
 	<h1>Jeu tri</h1>
 	<h2 id="nbTourRestant"></h2>	
+	<a href="progress.html#2" rel="external" data-icon="star">Scores</a>
 </header>
 
 <section data-role="content"> 
