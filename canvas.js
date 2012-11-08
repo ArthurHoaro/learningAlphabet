@@ -527,12 +527,8 @@ function random_letter()
 	document.getElementById("letter").innerHTML = tabletter[Math.floor ( Math.random() * 26 )];
 	/*document.getElementById("letter").innerHTML = tabletter[25];*/
 }
-
-// Keep everything in anonymous function, called on window load.
-if(window.addEventListener) {
-window.addEventListener('load', function () {
   var canvas, context, canvaso, contexto;
-
+  var tools = {};
   // The active tool instance.
   var tool;
   var tool_default = 'pencil';
@@ -540,75 +536,8 @@ window.addEventListener('load', function () {
   var total = 0;
   var tableauX = new Array();
   var tableauY = new Array();
+// Keep everything in anonymous function, called on window load.
 
-  function init () {
-    // Find the canvas element.
-    canvaso = document.getElementById('imageView');
-    if (!canvaso) {
-      alert('Error: I cannot find the canvas element!');
-      return;
-    }
-
-    if (!canvaso.getContext) {
-      alert('Error: no canvas.getContext!');
-      return;
-    }
-
-    // Get the 2D canvas context.
-    contexto = canvaso.getContext('2d');
-	
-    if (!contexto) {
-      alert('Error: failed to getContext!');
-      return;
-    }
-
-    // Add the temporary canvas.
-    var container = canvaso.parentNode;
-    canvas = document.createElement('canvas');
-    if (!canvas) {
-      alert('Error: I cannot create a new canvas element!');
-      return;
-    }
-
-    canvas.id     = 'imageTemp';
-    canvas.width  = canvaso.clientWidth;
-    canvas.height = canvaso.clientHeight;
-    container.appendChild(canvas);
-
-    context = canvas.getContext('2d');
-	context.strokeStyle='#578fba'; 
-	context.lineWidth=8;
-    // Activate the default tool.
-    if (tools[tool_default]) {
-      tool = new tools[tool_default]();
-    }
-
-    // Attach the mousedown, mousemove and mouseup event listeners.
-    canvas.addEventListener('mousedown', ev_canvas, false);
-    canvas.addEventListener('mousemove', ev_canvas, false);
-    canvas.addEventListener('mouseup',   ev_canvas, false);
-    canvas.addEventListener('touchmove',   ev_canvas, false);
-    canvas.addEventListener('touchstart',   ev_canvas, false);
-    canvas.addEventListener('touchend',   ev_canvas, false);
-  }
-
-  // The general-purpose event handler. This function just determines the mouse 
-  // position relative to the canvas element.
-  function ev_canvas (ev) {
-    if (ev.layerX || ev.layerY == 0) { // Firefox
-      ev._x = ev.layerX;
-      ev._y = ev.layerY;
-    } else if (ev.offsetX || ev.offsetY == 0) { // Opera
-      ev._x = ev.offsetX;
-      ev._y = ev.offsetY;
-    }
-
-    // Call the event handler of the tool.
-    var func = tool[ev.type];
-    if (func) {
-      func(ev);
-    }
-  }
 
   // This function draws the #imageTemp canvas on top of #imageView, after which 
   // #imageTemp is cleared. This function is called each time when the user 
@@ -634,7 +563,7 @@ window.addEventListener('load', function () {
 		});
   
 		/*Marge d'erreur sur la position des points*/
-		var marge = 10;
+		var marge = 15;
 		/*alert(document.getElementById('letter').innerHTML);*/
 		tableauX_letter = new Array();
 		tableauY_letter = new Array();
@@ -736,8 +665,90 @@ window.addEventListener('load', function () {
 		
   }
 
+
+
+if(window.addEventListener) {
+window.addEventListener('load', function () {
+
+
+  function init () {
+    // Find the canvas element.
+    canvaso = document.getElementById('imageView');
+    if (!canvaso) {
+      alert('Error: I cannot find the canvas element!');
+      return;
+    }
+
+    if (!canvaso.getContext) {
+      alert('Error: no canvas.getContext!');
+      return;
+    }
+
+    // Get the 2D canvas context.
+    contexto = canvaso.getContext('2d');
+	
+    if (!contexto) {
+      alert('Error: failed to getContext!');
+      return;
+    }
+
+    // Add the temporary canvas.
+    var container = canvaso.parentNode;
+    canvas = document.createElement('canvas');
+    if (!canvas) {
+      alert('Error: I cannot create a new canvas element!');
+      return;
+    }
+
+    canvas.id     = 'imageTemp';
+    canvas.width  = canvaso.clientWidth;
+    canvas.height = canvaso.clientHeight;
+    container.appendChild(canvas);
+
+    context = canvas.getContext('2d');
+	context.strokeStyle='#578fba'; 
+	context.lineWidth=8;
+    // Activate the default tool.
+    if (tools[tool_default]) {
+      tool = new tools[tool_default]();
+    }
+
+    // Attach the mousedown, mousemove and mouseup event listeners.
+    canvas.addEventListener('mousedown', ev_canvas, false);
+    canvas.addEventListener('mousemove', ev_canvas, false);
+    canvas.addEventListener('mouseup',   ev_canvas, false);
+    canvas.addEventListener('touchmove',   ev_canvas, false);
+    canvas.addEventListener('touchstart',   ev_canvas, false);
+    canvas.addEventListener('touchend',   ev_canvas, false);
+  }
+
+  // The general-purpose event handler. This function just determines the mouse 
+  // position relative to the canvas element.
+  function ev_canvas (ev) {
+    if (ev.layerX || ev.layerY == 0) { // Firefox
+	  if(ev.layerX==-64)
+	  {
+		ev._x=(ev.targetTouches[0].pageX - (canvas.offsetLeft+15));
+		ev._y=(ev.targetTouches[0].pageY - (canvas.offsetTop+130));
+      }
+	  else
+	  {
+  	    ev._x = ev.layerX;
+        ev._y = ev.layerY;
+	  }
+	} else if (ev.offsetX || ev.offsetY == 0) { // Opera
+      ev._x = ev.offsetX;
+      ev._y = ev.offsetY;
+    }
+
+    // Call the event handler of the tool.
+    var func = tool[ev.type];
+    if (func) {
+      func(ev);
+    }
+  }
+
   // This object holds the implementation of each drawing tool.
-  var tools = {};
 
   // The drawing pencil.
   tools.pencil = function () {
@@ -763,7 +774,8 @@ window.addEventListener('load', function () {
     // draws if the tool.started state is set to true (when you are holding down 
     // the mouse button).
     this.touchmove = function (ev) {
-      if (tool.started) {
+	  
+	  if (tool.started) {
 		//Evite que l'utilisateur "gribouille" pour avoir juste
 		if(tableauX.length <340)
 		{
@@ -777,6 +789,7 @@ window.addEventListener('load', function () {
     };
 	this.mousemove = function (ev) {
       if (tool.started) {
+	  
 		//Evite que l'utilisateur "gribouille" pour avoir juste
 		if(tableauX.length <340)
 		{
@@ -791,17 +804,15 @@ window.addEventListener('load', function () {
 
     // This is called when you release the mouse button.
     this.touchend = function (ev) {
-      if (tool.started) {
-        /*tool.touchmove(ev);*/
+	  if (tool.started) {
         tool.started = false;
-        img_update();
+        //img_update();
       }
     };
 	this.mouseup = function (ev) {
       if (tool.started) {
-        tool.mousemove(ev);
         tool.started = false;
-        img_update();
+        //img_update();
       }
     };
   };
