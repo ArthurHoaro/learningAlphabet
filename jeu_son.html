@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />	
 	<script src="libs/jquery-1.8.2.min.js"></script>
 	<script src="libs/jquery.mobile-1.2.0.min.js"></script>		
+	<script src="libs/cordova-2.2.0.js"></script>
 	<script src="scripts/random.js"></script>
 	<script type="text/javascript" charset="utf-8" src="scripts/sons.js"></script>
 	<script type="text/javascript" charset="utf-8" src="scripts/xml.js"></script>
@@ -68,9 +69,20 @@
 					NbTourRestant=5;
 					partie();					
 			   }
-			});	
-			partie();
+			});
+
+			
 		});
+
+		// Wait for PhoneGap to load
+		//
+		document.addEventListener("deviceready", onDeviceReady, false);
+
+		// PhoneGap is ready
+		//
+		function onDeviceReady() {
+		    partie();
+		}
 		
 	</script>
 </head>
