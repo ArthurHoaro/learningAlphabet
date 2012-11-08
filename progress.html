@@ -17,14 +17,14 @@
 
 $(document).ready(
 	function(){
-		// writeScoreToXml(1,'2012-06-11',4);
-		// writeScoreToXml(1,'2012-06-12',6);
-		// writeScoreToXml(2,'2012-06-12',0);
-		// writeScoreToXml(2,'2012-06-13',1);
-		// writeScoreToXml(2,'2012-06-15',10);
-		// writeScoreToXml(2,'2012-06-18',8);
-		// writeScoreToXml(4,'2012-06-12',0);
-		// writeScoreToXml(4,'2012-06-13',5);
+		writeScoreToXml(1,'2012-06-11',4);
+		writeScoreToXml(1,'2012-06-12',6);
+		writeScoreToXml(2,'2012-06-12',0);
+		writeScoreToXml(2,'2012-06-13',1);
+		writeScoreToXml(2,'2012-06-15',10);
+		writeScoreToXml(2,'2012-06-18',8);
+		writeScoreToXml(4,'2012-06-12',0);
+		writeScoreToXml(4,'2012-06-13',5);
 		loadGraph(1);
 	}
 );
@@ -47,7 +47,7 @@ function loadGraph(id){
 		  //clearData();
 }
 
-function clear(){
+function clearAll(){
 	clearData();
 	$('#graph').empty();
 }
@@ -62,7 +62,7 @@ function clear(){
 <header data-role="header" >
 	<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true">Retour</a>
 	<h2><span></span>Progression</h2>
-	<a href="#" data-icon="delete" onclick="clear();">Clear Data</a>
+	<a href="#" data-icon="delete" onclick="clearAll();">Clear Data</a>
 </header>
 
 <nav data-role="navbar">
