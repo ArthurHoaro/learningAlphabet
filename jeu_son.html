@@ -34,8 +34,13 @@
 					alert('OK');
 				else 
 					alert('KO');
-				if(nbTourRestant>0)
-					partie(--nbTourRestant);
+				if(--nbTourRestant>0)
+					partie(nbTourRestant);
+				else
+				{
+					$('#lettres').empty();
+					$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
+				}
 			});
 		}
 
