@@ -13,13 +13,15 @@
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
 	<script src="scripts/random.js"></script>
 	<script src="scripts/array.js"></script>
+	<script type="text/javascript" src="scripts/xml.js"></script>
 	<meta charset="utf-8" /> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
 	var nbTourRestant=5;
-	var listeLettres;
+	var listeLettres;	
+	var score=0;
 	function partie(){	
-			
+			var nbMouvement=0;
 			listeLettres = getRandomList(4);
 			while(checkOrdreAlpha(true)==true){
 				listeLettres=getRandomList(4);
@@ -36,12 +38,19 @@
 		    $( "#sortable" ).disableSelection();
 		   // <!-- Refresh list to the end of sort to have a correct display -->
 		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
-	     		$('#sortable').listview('refresh'); 	     		
+	     		$('#sortable').listview('refresh');
+	     		nbMouvement++; 	     		
 	     		 if(checkOrdreAlpha(false) && nbTourRestant>=0){
-	     		 	alert('OK');	     		 	    
+	     		 	alert('OK');
+	     		 	if(nbMouvement>=5)
+	     		 		score=score+0;
+	     		 	else
+	     		 		score=score+1;	
+	     		 	nbMouvement=0;    		 					 	    
 	     		 	if(nbTourRestant==0){
 	     		 		$('#sortable').empty();
-	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);	     		 		
+	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);	     
+	     		 		writeScoreToXml(2,getDateDuJour(),score);	     			 		
 	     		 	}
 	     		 	else if(nbTourRestant>0){
 	     		 		alert('nbmouve :'+nbMouvement +',' +score);
@@ -67,18 +76,12 @@
 	  		else{
 		  		$('.min_jeu2').each(function() {
 		  			curList[i++] = $(this).html();
-		  		});
-		  		nbMouvement++;
+		  		});		  		
 	  		}
 	  		var solution = copyArray(curList);
 	  		solution.sort();	  			
 	  		if (arrayEqual(curList, solution)) {
-	  			nbTourRestant--;
-	  			if(nbMouvement>=5)
-	     		 		score=score+0;
-	     		 	else
-	     		 		score=score+1;	
-	  			writeScoreToXml(2,getDateDuJour(),score);
+	  			nbTourRestant--;	  			
 	  			return true;
 	  		}
 	  		else
