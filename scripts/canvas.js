@@ -629,6 +629,7 @@ function random_letter()
 			document.getElementById('letter').style.border='2px solid green';
 			document.getElementById('letter').style["boxShadow"] ='0px 0px 20px green';
 			total = total +1;
+			writeScoreToXml(5,getDateDuJour(),1);
 			if(total==0)
 			{
 				document.getElementById("points").innerHTML = "0 Point... Essaie encore!";
