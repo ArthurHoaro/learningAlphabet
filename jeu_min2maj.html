@@ -13,24 +13,27 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			// on récupère une majuscule pour l'élément à trouver
-			var lower = true;		
+			var lower = false;		
 			var solution = getRandomLetter(lower);
-			$("#maj").html(solution.toUpperCase());	
+			$("#maj").html(solution.toLowerCase());	
 			// on récupère 4 minuscules dont la solution
 			var listeLettres = getRandomList(4, solution, lower);
+			var src = '';
 
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
 				//Alignement en deux lignes de deux éléments (ajout des <br/>)
 				//Génération des lettres minuscules avec appel aux fonctions gagne() et perd() selon si la lettre courante est solution
 				switch( i % 2) {
-					case 1:
-						$('#listeLettres').append('<div class="ui-grid-a"><div class="ui-block-a"><a class="min_jeu2">'+ listeLettres[i] +'</a></div>');
+					case 0:
+						src += '<div class="ui-grid-a"><div class="ui-block-a"><a class="min_jeu2">'+ listeLettres[i] +'</a></div>';
 					break;
-					case 0: 
-						$('#listeLettres').append('<div class="ui-block-b"><a class="min_jeu2">'+ listeLettres[i] +'</a></div></div>');
+					case 1: 
+						src += '<div class="ui-block-b"><a class="min_jeu2">'+ listeLettres[i] +'</a></div></div>';
 				}
 			}
-			
+
+			$('#listeLettres').append(src);
+
 			$('#listeLettres a').click(function(){
 				if($(this).html() == solution){
 					$(this).css("border","3px solid green");
@@ -48,15 +51,15 @@
 </head>
 <body>
 <div data-role="page">
-	<div data-role="header" >
+	<div data-role="header">
+		<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true" data-icon="back">Retour</a>
 		<h1>Jeu tri</h1>
+		<a href="progress.html#3" rel="external" data-icon="star">Scores</a>
 	</div>	
 	
 	<div data-role="content" data-theme="c" class="bloc_center">
+		<a href="#" data-role="button" data-icon="star" data-theme="b">Appuie sur la bonne minuscule</a>
 		<a class="min_jeu2" id="maj"></a>
-		<div>
-				Appuie sur la bonne minuscule
-		</div>
 		<div id="listeLettres"></div>
 	</div>
 	
