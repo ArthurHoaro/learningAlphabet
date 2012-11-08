@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
 <title>AlphaBaby</title>
@@ -10,11 +10,12 @@
 	<script type="text/javascript" charset="utf-8" src="scripts/sons.js"></script>
 	<script type="text/javascript" charset="utf-8" src="scripts/xml.js"></script>
 	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
 	var score=0;
-
-		function partie(nbTourRestant){
+	var nbTourRestant=5;
+		function partie(){
 			score=score +3;
 			var solution = getRandomLetter();
 			var listeLettres = getRandomList(4, solution);
@@ -26,21 +27,23 @@
 
 			play_src('lettre_alpha', solution);
 
-			$('.min_jeu2').click(function() {
+			$('.min_jeu2').click(function() {			
 				if ( $(this).html() == solution ){
-					alert('OK');
-					if(--nbTourRestant>0)
-					partie(nbTourRestant);
-				else
+					$(this).css("border","2px solid green");
+					nbTourRestant--;
+					if(nbTourRestant>0)
+					{
+						$("#popupOui").popup("open",{positionTo:"#nbTourRestant"});
+					}
+					else
+					{
+						$("#popupNew").popup("open",{positionTo:"#nbTourRestant"});
+					}
+				}
+				else 
 				{
-					$('#lettres').empty();
-					$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
-					var date=getDateDuJour();
-					writeScoreToXml(1,date,score);
-				}
-				}
-				else {
-					alert('KO');
+					$(this).css("border","2px solid red");
+					$(this).css("opacity","0.5");
 					score--;
 				}
 				
@@ -48,9 +51,27 @@
 		}
 
 
-		$(document).ready(function() {		
-			partie(5);
+		$(document).ready(function() {	
+			$( "#popupOui" ).on({
+					popupafterclose: function(event, ui) {
+					partie(nbTourRestant); 
+			   }
+			});
+			
+			$( "#popupNew" ).on({
+			   popupafterclose: function(event, ui) {
+					$('#lettres').empty();
+					$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
+					var date=getDateDuJour();
+					writeScoreToXml(1,date,score);
+					score=0;
+					NbTourRestant=5;
+					partie();					
+			   }
+			});	
+			partie();
 		});
+		
 	</script>
 </head>
 <body>
@@ -66,7 +87,15 @@
 </audio>
 
 <center><section data-role="content" data-theme="c" id="lettres"></center>
-	
+
+<div id="popop">
+	<div data-role="popup" id="popupOui" data-theme="a" data-overlay-theme="a">
+		<p>Bien joué!<p>
+	</div>
+	<div data-role="popup" id="popupNew" data-theme="a" data-overlay-theme="a">
+		<p>Attention, tu vas commencer une nouvelle partie!<p>
+	</div>
+</div>
 </section>
 </body>
 
