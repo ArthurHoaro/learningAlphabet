@@ -13,12 +13,14 @@
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
 	<script src="scripts/random.js"></script>
 	<script type="text/javascript" charset="utf-8" src="scripts/sons.js"></script>
+	<script type="text/javascript" charset="utf-8" src="scripts/xml.js"></script>
 	<meta charset="utf-8" /> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
-
+	var score=0;
 
 		function partie(nbTourRestant){
+			score=score +3;
 			var solution = getRandomLetter();
 			var listeLettres = getRandomList(4, solution);
 			$('#lettres').empty();
@@ -30,17 +32,23 @@
 			play_src('lettre_alpha', solution);
 
 			$('.lettre').click(function() {
-				if ( $(this).html() == solution )
+				if ( $(this).html() == solution ){
 					alert('OK');
-				else 
-					alert('KO');
-				if(--nbTourRestant>0)
+					if(--nbTourRestant>0)
 					partie(nbTourRestant);
 				else
 				{
 					$('#lettres').empty();
 					$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
+					var date=getDateDuJour();
+					writeScoreToXml(1,date,score);
 				}
+				}
+				else {
+					alert('KO');
+					score--;
+				}
+				
 			});
 		}
 
