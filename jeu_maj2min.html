@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<title>AlphaBaby</title>
+	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
+	<link rel="stylesheet" href="style.css" />
+	<script src="libs/jquery-1.8.2.min.js"></script>
+	<script src="libs/jquery.mobile-1.2.0.min.js"></script>
+	<script src="scripts/random.js"></script>
+	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			// on récupère une majuscule pour l'élément à trouver
+			var lower = true;		
+			var solution = getRandomLetter(lower);
+			$("#maj").html(solution.toUpperCase());	
+			// on récupère 4 minuscules dont la solution
+			var listeLettres = getRandomList(4, solution, lower);
+			var src = '';
+
+			for( var i = 0 ; i < listeLettres.length ; ++i ) {
+				//Alignement en deux lignes de deux éléments (ajout des <br/>)
+				//Génération des lettres minuscules avec appel aux fonctions gagne() et perd() selon si la lettre courante est solution
+				switch( i % 2) {
+					case 0:
+						src += '<div class="ui-grid-a"><div class="ui-block-a"><a class="min_jeu2">'+ listeLettres[i] +'</a></div>';
+					break;
+					case 1: 
+						src += '<div class="ui-block-b"><a class="min_jeu2">'+ listeLettres[i] +'</a></div></div>';
+				}
+			}
+
+			$('#listeLettres').append(src);
+
+			$('#listeLettres a').click(function(){
+				if($(this).html() == solution){
+					$(this).css("border","3px solid green");
+				}
+				else {
+					$(this).css("border","3px solid red");
+					$(this).css("opacity","0.5");
+				}
+			});
+
+		}); 
+		
+
+	</script>
+</head>
+<body>
+<div data-role="page">
+	<div data-role="header">
+		<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true" data-icon="back">Retour</a>
+		<h1>Jeu tri</h1>
+		<a href="progress.html#4" rel="external" data-icon="star">Scores</a>
+	</div>	
+	
+	<div data-role="content" data-theme="c" class="bloc_center">
+		<a href="#" data-role="button" data-icon="star" data-theme="b">Appuie sur la bonne minuscule</a>
+		<a class="min_jeu2" id="maj"></a>
+		<div id="listeLettres"></div>
+	</div>
+	
+</div>
+</body>
+
+</html>
