@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title>AlphaBaby</title>
+<title> Tri Drag'n'Drop HTML5 </title>
+	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
 	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
 	
 	<script src="libs/jquery-1.8.2.min.js"></script>
@@ -35,17 +36,19 @@
 		    $( "#sortable" ).disableSelection();
 		   // <!-- Refresh list to the end of sort to have a correct display -->
 		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
-	     		$('#sortable').listview('refresh'); 
+	     		$('#sortable').listview('refresh'); 	     		
 	     		 if(checkOrdreAlpha(false) && nbTourRestant>=0){
-	     		 	alert('OK');
+	     		 	alert('OK');	     		 	    
 	     		 	if(nbTourRestant==0){
 	     		 		$('#sortable').empty();
-	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
+	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);	     		 		
 	     		 	}
 	     		 	else if(nbTourRestant>0){
+	     		 		alert('nbmouve :'+nbMouvement +',' +score);
 	     				partie();	     	
 	     			}		
-	       		}	
+	       		}
+
 		    });
 		   
 
@@ -65,11 +68,17 @@
 		  		$('.min_jeu2').each(function() {
 		  			curList[i++] = $(this).html();
 		  		});
+		  		nbMouvement++;
 	  		}
 	  		var solution = copyArray(curList);
-	  		solution.sort();
+	  		solution.sort();	  			
 	  		if (arrayEqual(curList, solution)) {
 	  			nbTourRestant--;
+	  			if(nbMouvement>=5)
+	     		 		score=score+0;
+	     		 	else
+	     		 		score=score+1;	
+	  			writeScoreToXml(2,getDateDuJour(),score);
 	  			return true;
 	  		}
 	  		else
