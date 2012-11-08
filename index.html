@@ -1,58 +1,53 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-	<title>alphaBaby</title>
-	<link href='http://fonts.googleapis.com/css?family=audiowide' rel='stylesheet' >
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css" />
-	<link rel="stylesheet" href="style.css" />
+<!DOCTYPE html> 
+<html> 
+<head> 
+	<title>AlphaBaby</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="jquery.mobile-1.2.0.css" />
 	<script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
-	<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
-	<meta charset="utf-8" /> 
-</head>
+	<script src="jquery.mobile-1.2.0.min.js"></script>
+	<link rel="stylesheet" href="style.css" />
+</head> 
+<body> 
 
-
-<body>
-<header data-role="header" >
-	<a href="accueil.html" data-icon="home">Accueil</a>
-	<h1>AlphaBaby</h1>
-</header>
-
-<nav >
-	<ul data-role="listview" data-inset="true" data-filter="false">	
-	</ul>
+<div data-role="page">
+	<div data-role="header">
+		<h2>- Accueil -</h2>
+	</div><!-- /header -->
 	
-</nav>
-<section data-role="content"> 
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#a">A</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#b">B</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#c">C</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#d">D</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#e">E</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#f">F</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#g">G</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#h">H</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#i">I</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#j">J</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#k">K</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#l">L</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#m">M</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#n">N</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#o">O</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#p">P</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#q">Q</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#r">R</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#s">S</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#t">T</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#u">U</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#v">V</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#w">W</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#x">X</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#y">Y</a>
-	<a data-ajax="false" class="min_jeu2" href="lettre_unique.html#z">Z</a>	
-</section>
-<footer data-role="footer">
-	Copyright "IRC" 2012-2013, tous droits reserves.
-</footer>
-</body>
+	<div data-role="content" class="menu">	
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a href="apprentissage_menu.html" data-role="button" >
+					<img id="Logo" src="images/idea.png">
+				</a>
+				<h3>Apprendre</h3>
+			</div>
+			<div class="ui-block-b">
+				<a href="jeux.html" data-role="button" >
+					<img id="Logo" src="images/game.png">
+				</a>
+				<h3>Jouer</h3>
+			</div>
+		</div><!-- /grid-a -->	
 
+		<div class="ui-grid-a">
+			<div class="ui-block-a">
+				<a href="canvas.html" data-role="button" >
+					<img id="Logo" src="images/draw.png">
+				</a>
+				<h3>Dessiner</h3>
+			</div>
+			<div class="ui-block-b">
+				<a href="progress.html" data-role="button" >
+					<img id="Logo" src="images/chart.png">
+				</a>
+				<h3>Suivi</h3>
+			</div>
+		</div><!-- /grid-a -->	
+	</div><!-- /content -->
+
+</div><!-- /page -->
+
+</body>
 </html>

@@ -3,6 +3,7 @@
 <head>
 <title> Premiere page </title>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
 	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />
 	<link rel="stylesheet" href="style.css" />
@@ -20,7 +21,7 @@
 				$("#CursiveMaj").attr("src","images/cursive/animation_" +lettre+".gif");
 				$("#CursiveMin").attr("src","images/cursive/animationl_" +lettre+".gif");
 				$("#buttonPlay").attr("onclick","play_src('lettre_alpha','"+lettre.toUpperCase()+"')");
-				$("#buttonPlay").html(lettre.toUpperCase());
+/* 				$("#buttonPlay").html(lettre.toUpperCase()); */
 	});
 	</script>
 
@@ -29,23 +30,27 @@
 <body>
 
 <header data-role="header" >
-	<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true">Retour</a>
-	<h1>AlphaBaby</h1>
+	<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true" data-icon="back">Retour</a>
+	<h1></h1>
 </header>
 
 <section data-role="content"> 
-<a class="lettre" id="maj"></a>
-<img id="CursiveMaj" src="">
-<a class="lettre" id="min"></a>
-<img id="CursiveMin" src="">
-<audio id="lettre_alpha">
-		<source src="sons/en_alphabet.mp3"></source>
-		<source src="sons/en_alphabet.ogg"></source>
-	</audio>
-	<a id="buttonPlay" data-role="button" onclick="play_src('lettre_alpha', '')" class="but"></a>
+<div id="test">
+	<a class="min_jeu2" id="maj"></a><br/>
+	<img id="CursiveMaj" src=""><br/>
+	<a class="min_jeu2" id="min"></a><br/>
+	<img id="CursiveMin" src="">
+	<audio id="lettre_alpha">
+			<source src="sons/en_alphabet.mp3"></source>
+			<source src="sons/en_alphabet.ogg"></source>
+		</audio>
+		<center><a id="buttonPlay" data-role="button" onclick="play_src('lettre_alpha', '')" class="but">
+			<img id="Logo" src="speak.png" style="width: 60px; height=60px; margin-top:18%;">
+		</a></center>
+</div>
 </section>
 <footer data-role="footer">
-	Copyright "IRC" 2012-2013, tous droits reserves.
+	<center> &copy AlphaBaby</center>
 </footer>
 </body>
 
