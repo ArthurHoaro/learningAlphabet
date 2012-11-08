@@ -161,3 +161,8 @@ border: 2px solid #ccc;
 	height: 140px;
 	margin: 0;
 }
+
+.bloc_center {
+	margin: auto;
+	text-align: center;
+}
