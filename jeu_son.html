@@ -16,10 +16,13 @@
 	<meta charset="utf-8" /> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
-		$(document).ready(function() {		
+
+
+		function partie(nbTourRestant){
 			var solution = getRandomLetter();
 			var listeLettres = getRandomList(4, solution);
-
+			$('#lettres').empty();
+			$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
 				$('#lettres').append('<a class="lettre">'+ listeLettres[i] +'</a>');
 			}
@@ -31,7 +34,14 @@
 					alert('OK');
 				else 
 					alert('KO');
+				if(nbTourRestant>0)
+					partie(--nbTourRestant);
 			});
+		}
+
+
+		$(document).ready(function() {		
+			partie(5);
 		});
 	</script>
 </head>
@@ -39,7 +49,7 @@
 
 <header data-role="header">
 	<h1>Jeu son</h1>
-	<h2><span></span>Bienvenue sur mon site</h2>	
+	<h2 id="nbTourRestant"></h2>	
 </header>
 
 <!-- Simple audio playback -->
