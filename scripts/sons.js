@@ -22,7 +22,7 @@ function play_src(audio_id, nom_son) {
 		}
 	}
 	else{ 
-		playAndroid(nom_son); alert("android");
+		playAndroid(nom_son);
 	}
 }
 
@@ -78,8 +78,7 @@ function playAndroid(audio_id) {
 	audio_src = generate_android_sources(audio_id);
 
     // Create Media object from src   
-    my_media = new Media(audio_src,function(){alert('ok')},function(e){alert('error'+e.toString())});           	
-    alert(my_media.src);
+    my_media = new Media(audio_src,,function(e){alert('error'+e.toString())});           	
 
     // Play Full Title
     my_media.play();
