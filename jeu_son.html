@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<title> Tri Drag'n'Drop HTML5 </title>
+<title>AlphaBaby</title>
 	<link href='http://fonts.googleapis.com/css?family=Audiowide' rel='stylesheet' />
 	<link rel="stylesheet" href="libs/jquery.mobile-1.2.0.min.css" />	
 	<script src="libs/jquery-1.8.2.min.js"></script>
@@ -21,12 +21,12 @@
 			$('#lettres').empty();
 			$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
-				$('#lettres').append('<a class="lettre">'+ listeLettres[i] +'</a>');
+				$('#lettres').append('<a class="min_jeu2">'+ listeLettres[i] +'</a>');
 			}
 
 			play_src('lettre_alpha', solution);
 
-			$('.lettre').click(function() {
+			$('.min_jeu2').click(function() {
 				if ( $(this).html() == solution ){
 					alert('OK');
 					if(--nbTourRestant>0)
@@ -57,21 +57,17 @@
 
 <header data-role="header">
 	<a href="#" data-rel="back" data-icon="arrow-l" data-add-back-btn="true" data-icon="back">Retour</a>
-	<h1>Jeu son</h1>
-	<h2 id="nbTourRestant"></h2>
+	<h1>- Ecouter -</h1>
 	<a href="progress.html#1" rel="external" data-icon="star">Scores</a>	
 </header>
-
+<center><h4 id="nbTourRestant"></h4></center>
 <!-- Simple audio playback -->
 <audio id="lettre_alpha">
 </audio>
 
-<section data-role="content" data-theme="c" id="lettres">
+<center><section data-role="content" data-theme="c" id="lettres"></center>
 	
 </section>
-<footer data-role="footer">
-	Copyright "IRC" 2012-2013, tous droits reserves.
-</footer>
 </body>
 
 </html>
