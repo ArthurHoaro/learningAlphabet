@@ -1,5 +1,20 @@
 #sortable .lettre {
-	margin: 20px 0px;
+	margin: auto;
 	padding: 0px;
 	text-align: center;
+}
+
+#sortable
+{
+	margin:0px;
+	margin-top:-15px;
+}
+
+#poop
+{
+	width:96%;
+	height:11%;
+	padding:2px;
+	margin:4px;
+	font-size:4em;
 }

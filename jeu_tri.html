@@ -8,16 +8,15 @@
 	<script src="libs/jquery-1.8.2.min.js"></script>
 	<script src="libs/jquery.mobile-1.2.0.min.js"></script>
 	<script src="libs/jquery-ui-1.9.1/js/jquery-ui-1.9.1.custom.min.js"></script>
-	<link rel="stylesheet" href="libs/jquery-ui-1.9.1/css/smoothness/jquery-ui-1.9.1.custom.min.css" />
 	<!-- Drag and drop pour les mobiles -->
 	<script src="libs/jquery.ui.touch-punch.min.js"></script>
 	<script src="scripts/random.js"></script>
 	<script src="scripts/array.js"></script>
 	<script type="text/javascript" src="scripts/xml.js"></script>
 	<meta charset="utf-8" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<link rel="stylesheet" href="style.css" />
 	<script type="text/javascript">
-	var nbTourRestant=5;
 	var listeLettres;	
 	var score=0;
 	function partie(){	
@@ -25,12 +24,10 @@
 			listeLettres = getRandomList(4);
 			while(checkOrdreAlpha(true)==true){
 				listeLettres=getRandomList(4);
-				nbTourRestant++;
 			}
 			$('#sortable').empty();
-			$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);
 			for( var i = 0 ; i < listeLettres.length ; ++i ) {
-				$('#sortable').append('<li class="min_jeu2">'+ listeLettres[i] +'</li>');
+				$('#sortable').append('<li class="min_jeu2" id="poop">'+ listeLettres[i] +'</li>');
 			}
 			$('#sortable').listview('refresh');
 			//alert(listeLettres.sort());
@@ -40,29 +37,25 @@
 		    $( "#sortable" ).bind( "sortstop", function(event, ui) {
 	     		$('#sortable').listview('refresh');
 	     		nbMouvement++; 	     		
-	     		 if(checkOrdreAlpha(false) && nbTourRestant>=0){
-	     		 	alert('OK');
+	     		 if(checkOrdreAlpha(false)==true){
 	     		 	if(nbMouvement>=5)
-	     		 		score=score+0;
+	     		 		score=0;
 	     		 	else
-	     		 		score=score+1;	
-	     		 	nbMouvement=0;    		 					 	    
-	     		 	if(nbTourRestant==0){
-	     		 		$('#sortable').empty();
-	     		 		$('#nbTourRestant').html('Nombre de tour restants : '+nbTourRestant);	     
-	     		 		writeScoreToXml(2,getDateDuJour(),score);	     			 		
-	     		 	}
-	     		 	else if(nbTourRestant>0){
-	     		 		alert('nbmouve :'+nbMouvement +',' +score);
-	     				partie();	     	
-	     			}		
+	     		 		score=1;
+					$("#popupOui").popup("open",{positionTo:"#sortable"});		
 	       		}
 
 		    });
 		   
 
 	}
-		$(document).ready(function() {	
+		$(document).ready(function() {
+			$( "#popupOui" ).on({
+					popupafterclose: function(event, ui) {
+					writeScoreToXml(2,getDateDuJour(),score);
+					partie();
+			   }
+			});		
 			partie();
 			
 		});		
@@ -81,7 +74,7 @@
 	  		var solution = copyArray(curList);
 	  		solution.sort();	  			
 	  		if (arrayEqual(curList, solution)) {
-	  			nbTourRestant--;	  			
+	  				  			
 	  			return true;
 	  		}
 	  		else
@@ -99,11 +92,14 @@
 </header>
 
 <section data-role="content"> 
-	<h4 id="nbTourRestant"></h4>
 	<div data-role="content" data-theme="c">
 		<ul data-role="listview" data-inset="true" data-theme="d" id="sortable">
-			<li data-role="list-divider">Ranger dans l'ordre alphabétique</li>
 		</ul>
+	</div>
+	<div id="popop">
+		<div data-role="popup" id="popupOui" data-theme="a" data-overlay-theme="a">
+			<p>Bien joué!<p>
+		</div>
 	</div>
 </section>
 </body>
