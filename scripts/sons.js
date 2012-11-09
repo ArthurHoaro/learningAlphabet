@@ -17,7 +17,8 @@ function play_src(audio_id, nom_son) {
 	if( !isAndroid()) {
 		var audio_elem = $('#'+audio_id);
 		if( audio_elem != null ) {		
-			change_src_elem(audio_elem, nom_son)
+			change_src_elem(audio_elem, nom_son);
+			alert('play');
 	    	$(audio_elem)[0].play();
 		}
 	}
@@ -60,9 +61,9 @@ function stop( audio_id ) {
 }
 
 function isAndroid() {
-	var ua = navigator.userAgent.toLowerCase();
-	var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
-	if(isAndroid) {
+	 var ua = navigator.userAgent.toLowerCase();
+	 var isAndroid = ua.indexOf("android") > -1; //&& ua.indexOf("mobile");
+	if(window.cordova && isAndroid) {
 		return true;
 	}
 	return false;

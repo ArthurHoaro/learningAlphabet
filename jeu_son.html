@@ -72,9 +72,11 @@
 			// Wait for PhoneGap to load
 			//
 			if( isAndroid() ) {
+				// alert('pomme');
 				document.addEventListener("deviceready", onDeviceReady, false);
 			}
 			else {
+				// alert('poire');
 				partie();
 			}
 
