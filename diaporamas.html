@@ -46,9 +46,11 @@
 	//
 	$(document).ready(function() {	
 		if( isAndroid() ) {
+			alert('pas');
 			document.addEventListener("deviceready", onDeviceReady, false);
 		}
 		else {
+			alert('je passe');
 			diapo();
 		}
 	});
