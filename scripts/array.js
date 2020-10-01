@@ -9,9 +9,6 @@ function arrayEqual(arr1,arr2) {
 }
 
 function copyArray(arr1) {
-	var arr2 = new Array(); 
-	for(var i = 0 ; i < arr1.length ; i++ ) {
-		arr2[i] = arr1[i];
-	}
-    return arr2;
+	//ES6 way to copy an array
+	const arr2 = [...arr1];
 }
